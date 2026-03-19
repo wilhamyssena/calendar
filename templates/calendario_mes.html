@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<h2>Calendário do mês {{ mes }}</h2>
+
+<table border="1" style="width: 100%; text-align: center;">
+
+<tr>
+    <th>Seg</th>
+    <th>Ter</th>
+    <th>Qua</th>
+    <th>Qui</th>
+    <th>Sex</th>
+    <th>Sab</th>
+    <th>Dom</th>
+</tr>
+
+{% for semana in calendario %}
+<tr>
+
+    {% for dia in semana %}
+
+    <td style="height: 100px; vertical-align:top;">
+
+        {% if dia != 0 %}
+            <strong>{{ dia }}</strong><br>
+
+            {% if dia in pessoas_por_dia %}
+                {% for nome in pessoas_por_dia[dia] %}
+                    🎂 {{ nome }}<br>
+                {% endfor %}
+            {% endif %}
+        
+        {% endif %}
+        
+    </td>
+
+    {% endfor %}
+
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Aniversários</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<h1>Sistema de Aniversários</h1>
+
+<a href="/">Lista</a>
+<a href="/cadastro">Cadastrar</a>
+
+<hr>
+
+{% block conteudo %}{% endblock %}
+
+</body>
+</html>

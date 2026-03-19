@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<h2>Aniversariantes do mês {{ mes }}</h2>
+
+<div class="acoes">
+    <a href="/cadastro" class="btn">➕ Cadastrar</a>
+    <a href="/calendario/{{ mes }}" class="btn">📅 Ver Calendário</a>
+</div>
+
+<ul class="lista">
+
+{% for pessoa in pessoas %}
+
+<li>
+    <strong>{{ pessoa[0] }}</strong>
+    <span>dia {{ pessoa[1] }}</span>
+</li>
+
+{% endfor %}
+
+</ul>
+
+
+{% endblock %}
