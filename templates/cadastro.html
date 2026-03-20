@@ -1,28 +1,49 @@
-{% extends "base.html" %}
-
-{% block conteudo %}
-
 <h2>Cadastrar pessoas</h2>
 
 <form method="POST">
 
-Nome:<br>
-<input type="text" name="nome"><br><br>
+<label>Nome:</label><br>
+<input type="text" name="nome" required><br><br>
 
-Dia:<br>
-<input type="text" name="dia"><br><br>
+<label>Dia:</label><br>
+<input type="number" id="dia" name="dia" min="1" max="31" required><br><br>
 
-Mês:<br>
-<input type="text" name="mes"><br><br>
+<label>Mês:</label><br>
+<input type="number" id="mes" name="mes" min="1" max="12" required><br><br>
 
-Whatsaspp:<br>
+<label>Whatsapp:</label><br>
 <input type="text" name="whatsapp"><br><br>
 
-Instagram:<br>
+<label>Instagram:</label><br>
 <input type="text" name="instagram"><br><br>
 
-<button type="submit">Salvar</button>
+
+<button type="submit" class="btn">Salvar</button>
 
 </form>
 
-{% endblock %}
+<script>
+    const inputDia = document.getElementById('dia');
+    const inputMes = document.getElementById('mes');
+
+    /* Essa função roda sempre que digitar ou alterar o mês*/
+    inputMes.addEventListener('input', function() {
+        const mes = parseInt(this.value);
+        let maxDias = 31; // Valor padrão para maioria dos meses
+
+        /* Lógica para definir máximo de dias */
+        if (mes===2) {
+            maxDias=29; // 29 para incluir anos bissextos
+        } else if ([4, 6, 9, 11].includes(mes)) {
+            maxDias=30; // abril, junho, setembro, novembro
+        }
+
+        /* Atuaiza atributo 'max' do campo Dia */
+        inputDia.max = maxDias;
+        
+        /* Atualiza o dia automaticamente caso o mês seja alterado para fevereiro */
+        if (parseInt(inputDia.value) > maxDias) {
+            inputDia.value = maxDias;
+        }
+    });
+</script>

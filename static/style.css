@@ -32,16 +32,51 @@ body > * {
     border-radius: 5px;
 }
 
-td {
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Lista */
+.lista {
+    list-style: none;
+    padding: 0;
+}
+
+.lista li {
+    background: white;
+    margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #184fa1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Ações */
+.acoes {
+    margin-bottom: 20px;
+}
+
+/* Tabela calendário */
+table {
+    border-collapse: collapse;
+    background: white;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+td {
     height: 100px;
+    vertical-align: top;
 }
 
 td strong {
-    font-size: 15px;
+    font-size: 16px;
 }
 
-table {
-    border-collapse: collapse;
+/* Destaque dias com aniversário */
+td:has(🎂) {
+    background-color: #fff3cd;
 }

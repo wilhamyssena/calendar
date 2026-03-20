@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
     <title>Aniversários</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 <body>
 
-<h1>Sistema de Aniversários</h1>
-
-<a href="/">Lista</a>
-<a href="/cadastro">Cadastrar</a>
+<header>
+<h1>🎂 Sistema de Aniversários</h1>
+    <nav>
+        <a href="/">Lista</a>
+        <a href="/cadastro">Cadastrar</a>
+    </nav>
+</header>
 
 <hr>
-
-{% block conteudo %}{% endblock %}
+<div class="container">
+    {% block conteudo %}{% endblock %}
+</div>
 
 </body>
 </html>
